@@ -59,17 +59,18 @@ docker run -d \
 # 4. Authenticate EC2 to ECR & Launch Application Container
 aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin <ACCOUNT_ID>.dkr.ecr.eu-north-1.amazonaws.com
 
-docker run -d \
-  -p 8080:5000 \
+docker run -d -p 8080:5000
   --name running-app \
-
-## Phase 3 Finally admire the dockerized app
--with http://<ec2_public_IP>:8080
-<img width="702" height="377" alt="image" src="https://github.com/user-attachments/assets/8b83d142-5d0d-497b-9535-c049c8cd8583" />
-
   --network wp-network \
   -e WORDPRESS_DB_HOST=mysql-db:3306 \
   -e WORDPRESS_DB_USER=wordpress \
   -e WORDPRESS_DB_PASSWORD=wordpress \
   -e WORDPRESS_DB_NAME=wordpress \
   <ACCOUNT_ID>[.dkr.ecr.eu-north-1.amazonaws.com/aca-wordpress:latest](https://.dkr.ecr.eu-north-1.amazonaws.com/aca-wordpress:latest)
+
+  --
+
+## Phase 3 Finally admire the dockerized app
+   -with http://<ec2_public_IP>:8080
+<img width="702" height="377" alt="image" src="https://github.com/user-attachments/assets/8b83d142-5d0d-497b-9535-c049c8cd8583" />
+
