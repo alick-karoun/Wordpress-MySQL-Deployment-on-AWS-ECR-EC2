@@ -1,0 +1,16 @@
+# Python / Virtual Environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment Secrets & AWS Keys
+.env
+*.pem
+*.key
+aws-credentials.json
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
